@@ -14,15 +14,15 @@ const mochila = [];
 // Items Juego
 const pistola = new Item("Pistola", 80, "pistol.png");
 const escopeta = new Item("Escopeta", 160, "shotgun.png");
-const sniper =  new Item("Rifle", 120, "sniper.png")
+const sniper =  new Item("Rifle", 120, "sniper.png");
 
 
 //Gold
 let gold = 1000;
 
 //Elementos
-const elementgold = document.querySelector("#gold span");
-const elementbag = document.querySelector("#bag");
+const elementGold = document.querySelector("#gold span");
+const elementBag = document.querySelector("#bag");
 
 // Funciones regulares
 
@@ -46,7 +46,22 @@ function buy(item) {
 function sell(indice) {
     const item = bag[indice];
     gold = gold + item.price;
-
+    bag.splice(indice, 1);
+    actualizarHTML();
 }
+
+function actualizarHTML() {
+    elementbag.innerHTML = "";
+    for (const item of bag) {
+        let indiceItem = bag.Indexof(item);
+        let elementItem = `
+        <li class="item" onclick="sell(${indiceItem})">
+            <img src="img/${item.imagen}"/>
+        </li>`;
+        elementBag.innerHTML += elementItem;
+        }
+        elementGold.innerText = oro;
+}
+
 
 
