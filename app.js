@@ -17,7 +17,7 @@ class Item {
   const escopeta = new Item("Escopeta", 160, "shotgun.png");
   const rifle = new Item("Rifle", 120, "sniper.png");
   
-  // Oro
+  // Pesetas
   let oro = 1000;
   
   // Elementos
@@ -26,7 +26,6 @@ class Item {
   elementoOro.innerText = oro;
   
   // Funciones regulares
-  
   
   function comprar(item) {
     if (oro - item.precio <= 0) {
