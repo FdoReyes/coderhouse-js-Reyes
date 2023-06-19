@@ -37,7 +37,7 @@ li:hover {
     display: inline-block;
 }
 
-#bag {
+#mochila {
     min-height: 140px;
     padding: 1rem;
 }
@@ -58,13 +58,13 @@ h2 {
     font-weight: 400;
 }
 
-.window {
+.ventana {
     border: 5px solid white;
     background-color: black;
     opacity: 0.9;
 }
 
-#gold {
+#oro {
     color: gold;
     font-size: 3rem;
     text-align: right;
