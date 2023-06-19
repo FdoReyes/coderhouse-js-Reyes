@@ -64,6 +64,11 @@ h2 {
     opacity: 0.9;
 }
 
+
+.bag{
+    font-size: 2rem;
+}
+
 #oro {
     color: gold;
     font-size: 3rem;
