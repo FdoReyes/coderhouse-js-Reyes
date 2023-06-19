@@ -32,7 +32,7 @@ class Item {
     if (oro - item.precio <= 0) {
       alert("No ténes suficiente oro para comprar " + item.nombre + ".");
     } else if (mochila.length > 5) {
-      alert("No ténes más espacio en el inventario.");
+      alert("No ténes más espacio en el maletin.");
     } else {
       mochila.push(item);
       oro = oro - item.precio; 
