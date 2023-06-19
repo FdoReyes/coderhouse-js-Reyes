@@ -30,9 +30,9 @@ class Item {
   
   function comprar(item) {
     if (oro - item.precio <= 0) {
-      alert("No ténes suficiente oro para comprar " + item.nombre + ".");
+      alert("No tienes suficientes pesestas para comprar " + item.nombre + ".");
     } else if (mochila.length > 5) {
-      alert("No ténes más espacio en el maletingo.");
+      alert("No tienes más espacio en el maletin.");
     } else {
       mochila.push(item);
       oro = oro - item.precio; 
