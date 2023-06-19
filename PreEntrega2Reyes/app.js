@@ -1,67 +1,65 @@
 class Item {
-    constructor(name, price, image) {
-    this.name = name;
-    this.price = price;
-    this.image = image;
+
+    constructor(nombre, precio, imagen) {
+      this.nombre = nombre;
+      this.precio = precio;
+      this.imagen = imagen;
     }
-}
+  }
+  
+  // Variables globales
+  
 
-// Variables Globales
-
-const mochila = [];
-
-
-// Items Juego
-const pistola = new Item("Pistola", 80, "pistol.png");
-const escopeta = new Item("Escopeta", 160, "shotgun.png");
-const sniper =  new Item("Rifle", 120, "sniper.png");
-
-
-//Gold
-let gold = 1000;
-
-//Elementos
-const elementGold = document.querySelector("#gold span");
-const elementBag = document.querySelector("#bag");
-
-// Funciones regulares
-
-//Funcion encargada de agregar items al maletin
-
-function buy(item) {
-    if (oro - item.price <= 0) {
-        alert("No tienes suficiente oro para comprar " + item.name + ".");
-    } else if (bag.length > 5) {
-        alert ("No tienes más espacio en tu maletin");
-    } else  {
-        bag.push(item);
-        gold = gold - item.price;
-        actualizarHTML();
+  const mochila = [];
+  
+  // Items del juego
+  const pistola = new Item("Pistola", 80, "pistol.png");
+  const escopeta = new Item("Escopeta", 160, "shotgun.png");
+  const rifle = new Item("Rifle", 120, "sniper.png");
+  
+  // Oro
+  let oro = 1000;
+  
+  // Elementos
+  const elementoOro = document.querySelector("#oro span");
+  const elementoMochila = document.querySelector("#mochila");
+  elementoOro.innerText = oro;
+  
+  // Funciones regulares
+  
+  
+  function comprar(item) {
+    if (oro - item.precio <= 0) {
+      alert("No ténes suficiente oro para comprar " + item.nombre + ".");
+    } else if (mochila.length > 5) {
+      alert("No ténes más espacio en el inventario.");
+    } else {
+      mochila.push(item);
+      oro = oro - item.precio; 
+      actualizarHTML();
     }
-}
-
-//Funcion encargada de quitar items del maletin
-
-
-function sell(indice) {
-    const item = bag[indice];
-    gold = gold + item.price;
-    bag.splice(indice, 1);
+  }
+  
+ 
+  function vender(indice) {
+    const item = mochila[indice];
+    oro = oro + item.precio;
+    mochila.splice(indice, 1);
     actualizarHTML();
-}
-
-function actualizarHTML() {
-    elementbag.innerHTML = "";
-    for (const item of bag) {
-        let indiceItem = bag.Indexof(item);
-        let elementItem = `
-        <li class="item" onclick="sell(${indiceItem})">
-            <img src="img/${item.imagen}"/>
-        </li>`;
-        elementBag.innerHTML += elementItem;
-        }
-        elementGold.innerText = oro;
-}
-
+  }
+  
+  
+  function actualizarHTML() {
+    elementoMochila.innerHTML = "";
+    for (const item of mochila) {
+      let indiceItem = mochila.indexOf(item);
+      let elementoItem = `
+          <li class="item" onclick="vender(${indiceItem})">
+              <img src="img/${item.imagen}" />
+          </li>`;
+      elementoMochila.innerHTML += elementoItem;
+    }
+    elementoOro.innerText = oro;
+  }
 
 
